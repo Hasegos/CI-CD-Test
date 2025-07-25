@@ -46,7 +46,7 @@ jobs:
       - name: JAR 다운로드
         uses: actions/download-artifact@v4
         with:
-          name: jar- artifact
+          name: jar-artifact
           path: target/
 
       - name: Dockerfile 생성
@@ -62,8 +62,8 @@ jobs:
       - name : Docker Hub 로그인
         uses: docker/login-action@v2
         with:
-          username:${{ secrets.DOCKER_USERNAME }}
-          password:${{ secrets.DOCKER_PASSWORD }}
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Docker 이미지 빌드 및 푸시
         uses: docker/build-push-action@v4
