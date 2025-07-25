@@ -49,6 +49,11 @@ jobs:
           name: jar-artifact
           path: target/
 
+      - name: 이미지 이름 소문자로 변환
+        run: |
+          IMAGE_NAME=$(echo "${{ github.repository }}" | tr '[:upper:]' '[:lower:]')
+          echo "IMAGE_NAME=$IMAGE_NAME" >> $GITHUB_ENV
+
       - name: Dockerfile 생성
         run: |
           cat > Dockerfile << 'EOF'
